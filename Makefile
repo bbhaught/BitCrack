@@ -13,8 +13,8 @@ CXX=g++
 CXXFLAGS=-O2 -std=c++14
 
 # CUDA variables
-COMPUTE_CAP=75
-NVCC=nvcc
+COMPUTE_CAP=86
+NVCC=/usr/local/cuda-13.1/bin/nvcc
 NVCCFLAGS=-std=c++14 -gencode=arch=compute_${COMPUTE_CAP},code=\"sm_${COMPUTE_CAP}\" -Xptxas="-v" -Xcompiler "${CXXFLAGS}"
 CUDA_HOME=/usr/local/cuda
 CUDA_LIB=${CUDA_HOME}/lib64
