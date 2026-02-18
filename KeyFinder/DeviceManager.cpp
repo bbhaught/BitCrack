@@ -31,7 +31,7 @@ std::vector<DeviceManager::DeviceInfo> DeviceManager::getDevices()
 
             deviceId++;
         }
-    } catch(cuda::CudaException ex) {
+    } catch(const cuda::CudaException& ex) {
         throw DeviceManager::DeviceManagerException(ex.msg);
     }
 #endif

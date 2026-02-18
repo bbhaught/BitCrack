@@ -60,7 +60,7 @@ int main(int argc, char **argv)
         for(int i = 0; i < operands.size(); i++) {
             try {
                 keys.push_back(secp256k1::uint256(operands[i]));
-            } catch(std::string err) {
+            } catch(const std::string& err) {
                 printf("Error parsing private key: %s\n", err.c_str());
                 return 1;
             }

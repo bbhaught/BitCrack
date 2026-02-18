@@ -147,7 +147,7 @@ cudaError_t CudaHashLookup::setTargetBloomFilter(const std::vector<struct hash16
 	
 	try {
 		filter = new unsigned int[bloomFilterSizeWords];
-	} catch(std::bad_alloc) {
+	} catch(const std::bad_alloc&) {
 		Logger::log(LogLevel::Error, "Out of system memory");
 
 		return cudaErrorMemoryAllocation;

@@ -19,7 +19,7 @@ CudaKeySearchDevice::CudaKeySearchDevice(int device, int threads, int pointsPerT
     try {
         info = cuda::getDeviceInfo(device);
         _deviceName = info.name;
-    } catch(cuda::CudaException ex) {
+    } catch(const cuda::CudaException& ex) {
         throw KeySearchException(ex.msg);
     }
 
@@ -152,7 +152,7 @@ void CudaKeySearchDevice::doStep()
         } else {
             callKeyFinderKernel(_blocks, _threads, _pointsPerThread, false, _compression);
         }
-    } catch(cuda::CudaException ex) {
+    } catch(const cuda::CudaException& ex) {
         throw KeySearchException(ex.msg);
     }
 

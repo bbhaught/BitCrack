@@ -418,7 +418,7 @@ int run()
         f.run();
 
         delete d;
-    } catch(KeySearchException ex) {
+    } catch(const KeySearchException& ex) {
         Logger::log(LogLevel::Info, "Error: " + ex.msg);
         return 1;
     }
@@ -488,7 +488,7 @@ int main(int argc, char **argv)
             Logger::log(LogLevel::Error, "No devices available");
             return 1;
         }
-    } catch(DeviceManager::DeviceManagerException ex) {
+    } catch(const DeviceManager::DeviceManagerException& ex) {
         Logger::log(LogLevel::Error, "Error detecting devices: " + ex.msg);
         return 1;
     }
@@ -520,7 +520,7 @@ int main(int argc, char **argv)
 
     try {
         parser.parse(argc, argv);
-    } catch(std::string err) {
+    } catch(const std::string& err) {
         Logger::log(LogLevel::Error, "Error: " + err);
         return 1;
     }
@@ -604,7 +604,7 @@ int main(int argc, char **argv)
                 _config.follow = true;
             }
 
-		} catch(std::string err) {
+		} catch(const std::string& err) {
 			Logger::log(LogLevel::Error, "Error " + opt + ": " + err);
 			return 1;
 		}
